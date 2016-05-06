@@ -6,6 +6,7 @@
  */
 package org.hibernate.ogm.datastore.neo4j.impl;
 
+import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ import org.neo4j.graphdb.factory.GraphDatabaseFactory;
  */
 public class EmbeddedGraphDatabaseFactory implements GraphDatabaseServiceFactory {
 
-	private String dbLocation;
+	private File dbLocation;
 
 	private URL configurationLocation;
 
@@ -34,9 +35,9 @@ public class EmbeddedGraphDatabaseFactory implements GraphDatabaseServiceFactory
 	public void initialize(Map<?, ?> properties) {
 		ConfigurationPropertyReader configurationPropertyReader = new ConfigurationPropertyReader( properties );
 
-		this.dbLocation = configurationPropertyReader.property( Neo4jProperties.DATABASE_PATH, String.class )
+		this.dbLocation = new File( configurationPropertyReader.property( Neo4jProperties.DATABASE_PATH, String.class )
 				.required()
-				.getValue();
+				.getValue() );
 
 		this.configurationLocation = configurationPropertyReader
 				.property( Neo4jProperties.CONFIGURATION_RESOURCE_NAME, URL.class )
@@ -64,6 +65,7 @@ public class EmbeddedGraphDatabaseFactory implements GraphDatabaseServiceFactory
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private void setConfigurationFromProperties(GraphDatabaseBuilder builder, Map<?, ?> properties) {
 		if ( properties != null ) {
 			builder.setConfig( convert( properties ) );

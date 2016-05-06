@@ -32,6 +32,7 @@ public class MagicCardsCollectionBean {
 		return em.find( MagicCard.class, id );
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<MagicCard> findByName(String name) {
 		FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager( em );
 		QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity( MagicCard.class ).get();

@@ -127,6 +127,7 @@ public class OgmQueryTranslator extends LegacyParserBridgeQueryTranslator {
 		return loaderToUse.list( session, queryParameters );
 	}
 
+	@SuppressWarnings("unchecked")
 	private <T> OgmQueryLoader getLoader(QueryParameters queryParameters) {
 		QueryParsingResult queryParsingResult = queryParameters != null
 				? getQuery( queryParameters )

@@ -83,6 +83,7 @@ public class EhcacheTestHelper implements TestableGridDialect {
 		return castProvider.getCacheManager().getIdSourceCache( DefaultIdSourceKeyMetadata.forTable( tableName, "sequence_name", "next_val" ) );
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String,Object> extractEntityTuple(SessionFactory sessionFactory, EntityKey key) {
 		Cache cache = getEntityCache( sessionFactory, key.getMetadata() );

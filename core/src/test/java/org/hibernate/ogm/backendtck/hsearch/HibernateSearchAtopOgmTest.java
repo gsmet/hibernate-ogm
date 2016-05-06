@@ -30,6 +30,7 @@ import static org.fest.assertions.Assertions.assertThat;
 @SkipByGridDialect(value = GridDialectType.NEO4J, comment = "Neo4j is not compatible with HSEARCH 5")
 public class HibernateSearchAtopOgmTest extends JpaTestCase {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testHibernateSearchJPAAPIUsage() throws Exception {
 		final FullTextEntityManager ftem = Search.getFullTextEntityManager( getFactory().createEntityManager() );
@@ -58,6 +59,7 @@ public class HibernateSearchAtopOgmTest extends JpaTestCase {
 		ftem.close();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testHibernateSearchNativeAPIUsage() throws Exception {
 		final EntityManager entityManager = getFactory().createEntityManager();

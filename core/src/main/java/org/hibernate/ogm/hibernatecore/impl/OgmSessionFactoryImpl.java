@@ -107,6 +107,7 @@ public class OgmSessionFactoryImpl implements OgmSessionFactoryImplementor {
 	}
 
 	@Override
+	@Deprecated
 	public JdbcServices getJdbcServices() {
 		return delegate.getJdbcServices();
 	}
@@ -212,16 +213,19 @@ public class OgmSessionFactoryImpl implements OgmSessionFactoryImplementor {
 	}
 
 	@Override
+	@Deprecated
 	public SQLExceptionConverter getSQLExceptionConverter() {
 		return delegate.getSQLExceptionConverter();
 	}
 
 	@Override
+	@Deprecated
 	public SqlExceptionHelper getSQLExceptionHelper() {
 		return delegate.getSQLExceptionHelper();
 	}
 
 	@Override
+	@Deprecated
 	public Settings getSettings() {
 		return delegate.getSettings();
 	}
@@ -262,6 +266,7 @@ public class OgmSessionFactoryImpl implements OgmSessionFactoryImplementor {
 	}
 
 	@Override
+	@Deprecated
 	public IdentifierGeneratorFactory getIdentifierGeneratorFactory() {
 		return delegate.getIdentifierGeneratorFactory();
 	}

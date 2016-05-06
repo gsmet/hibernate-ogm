@@ -87,6 +87,7 @@ public class RedisModuleMemberRegistrationWithTTLConfiguredIT extends ModuleMemb
 	}
 
 	@Test
+	@SuppressWarnings("deprecation")
 	public void testTtlIsSet() throws InterruptedException {
 		// given
 		phoneNumberService.createPhoneNumber( "Michael", "123-456" );

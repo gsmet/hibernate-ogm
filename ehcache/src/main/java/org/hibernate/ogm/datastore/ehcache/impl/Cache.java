@@ -27,6 +27,7 @@ public class Cache<K> {
 		return delegate.get( key );
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<K> getKeys() {
 		return delegate.getKeys();
 	}

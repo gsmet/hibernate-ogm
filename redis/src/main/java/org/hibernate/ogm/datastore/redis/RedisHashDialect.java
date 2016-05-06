@@ -58,7 +58,7 @@ public class RedisHashDialect extends AbstractRedisDialect {
 	}
 
 	@Override
-	@SuppressWarnings({"unchecked", "rawtypes" })
+	@SuppressWarnings({"unchecked", "rawtypes", "deprecation" })
 	public Tuple getTuple(
 			EntityKey key, TupleContext tupleContext) {
 		String entityIdString = entityId( key );
@@ -153,6 +153,7 @@ public class RedisHashDialect extends AbstractRedisDialect {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public Association getAssociation(
 			AssociationKey key, AssociationContext associationContext) {
 		RedisAssociation redisAssociation;

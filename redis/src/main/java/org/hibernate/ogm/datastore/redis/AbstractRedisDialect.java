@@ -242,6 +242,7 @@ public abstract class AbstractRedisDialect extends BaseGridDialect {
 	 * Single key: Use the value from the key
 	 * Multiple keys: De-serialize the JSON map.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<String, Object> keyStringToMap(EntityKeyMetadata entityKeyMetadata, String key) {
 		if ( entityKeyMetadata.getColumnNames().length == 1 ) {
 			return Collections.singletonMap( entityKeyMetadata.getColumnNames()[0], (Object) key );
@@ -312,6 +313,7 @@ public abstract class AbstractRedisDialect extends BaseGridDialect {
 	 * Single key: Use the value from the key
 	 * Multiple keys: De-serialize the JSON map.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<String, Object> keyToMap(EntityKeyMetadata entityKeyMetadata, String key) {
 		if ( entityKeyMetadata.getColumnNames().length == 1 ) {
 			return Collections.singletonMap( entityKeyMetadata.getColumnNames()[0], (Object) key );
@@ -396,7 +398,6 @@ public abstract class AbstractRedisDialect extends BaseGridDialect {
 		return commands.scan( scanArgs );
 	}
 
-	@SuppressWarnings("unchecked")
 	private KeyScanCursor<String> clusterScan(KeyScanCursor<String> cursor, ScanArgs scanArgs) {
 
 		RedisAdvancedClusterCommands<String, String> commands = (RedisAdvancedClusterCommands<String, String>) connection;
@@ -432,7 +433,7 @@ public abstract class AbstractRedisDialect extends BaseGridDialect {
 		RedisClusterCommands<String, String> nodeConnection = commands.getConnection( currentNodeId );
 		KeyScanCursor<String> nodeKeyScanCursor = scan( nodeConnection, cursor, scanArgs );
 
-		return new ClusterwideKeyScanCursor(
+		return new ClusterwideKeyScanCursor<String>(
 				nodeIds,
 				currentNodeId,
 				nodeKeyScanCursor

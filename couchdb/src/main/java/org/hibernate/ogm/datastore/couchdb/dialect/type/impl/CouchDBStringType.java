@@ -34,6 +34,7 @@ public class CouchDBStringType extends StringType implements VersionType<String>
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Comparator<String> getComparator() {
 		return ComparableComparator.INSTANCE;
 	}

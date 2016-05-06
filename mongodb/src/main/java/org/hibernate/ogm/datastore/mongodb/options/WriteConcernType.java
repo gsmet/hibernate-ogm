@@ -32,7 +32,10 @@ public enum WriteConcernType {
 	/**
 	 * Exceptions are raised for network issues, and server errors; the write operation waits for the server to flush
 	 * the data to disk.
+	 *
+	 * @deprecated Prefer {@link #JOURNALED}
 	 */
+	@Deprecated
 	FSYNCED(WriteConcern.FSYNCED),
 
 	/**
@@ -44,8 +47,23 @@ public enum WriteConcernType {
 	/**
 	 * Exceptions are raised for network issues, and server errors; waits for at least 2 servers for the write
 	 * operation.
+	 *
+	 * @deprecated Prefer {@link #W2}
 	 */
+	@Deprecated
 	REPLICA_ACKNOWLEDGED(WriteConcern.REPLICA_ACKNOWLEDGED),
+
+	/**
+	 * Exceptions are raised for network issues, and server errors; waits for at least 2 servers for the write
+	 * operation.
+	 */
+	W2(WriteConcern.W2),
+
+	/**
+	 * Exceptions are raised for network issues, and server errors; waits for at least 3 servers for the write
+	 * operation.
+	 */
+	W3(WriteConcern.W3),
 
 	/**
 	 * Exceptions are raised for network issues, and server errors; waits on a majority of servers for the write

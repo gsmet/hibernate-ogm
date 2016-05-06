@@ -159,6 +159,7 @@ public class MongoDBEntityManagerNativeQueryTest extends JpaTestCase {
 
 	@Test
 	@Ignore
+	@SuppressWarnings("unchecked")
 	// TODO OGM-564 Re-enable once HHH-8237 is resolved and we're on ORM 4.3.6
 	public void testProjectionQueryWithTypeConversion() throws Exception {
 		begin();

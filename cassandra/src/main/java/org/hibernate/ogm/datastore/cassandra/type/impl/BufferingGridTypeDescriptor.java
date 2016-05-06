@@ -48,6 +48,7 @@ public class BufferingGridTypeDescriptor implements GridTypeDescriptor {
 		return new GridValueExtractor<X>() {
 
 			@Override
+			@SuppressWarnings("unchecked")
 			public X extract(Tuple resultset, String name) {
 				final X result = (X) resultset.get( name );
 				if ( result == null ) {
