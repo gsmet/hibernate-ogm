@@ -51,6 +51,11 @@ public class HostParser {
 	 * For example
 	 *
 	 * www.example.com, www2.example.com:123, 192.0.2.1, 192.0.2.2:123, 2001:db8::ff00:42:8329, [2001:db8::ff00:42:8329]:123
+	 *
+	 * @param hostString a comma separated list of hosts. Host can be defined either as host or as host:port
+	 * @param explicitGlobalPort the port explicitly defined by {@link OgmProperties.PORT}: this is a legacy setting
+	 * @param defaultPort the default port
+	 * @return an {@link Hosts} object containing all the configured hosts
 	 */
 	public static Hosts parse(String hostString, Integer explicitGlobalPort, Integer defaultPort) {
 		List<String> hosts = new ArrayList<>();

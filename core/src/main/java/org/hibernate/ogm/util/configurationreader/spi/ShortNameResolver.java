@@ -15,11 +15,17 @@ public interface ShortNameResolver {
 
 	/**
 	 * Does not accept null values for the {@code name} parameter.
+	 *
+	 * @param name the name
+	 * @return true if the name is a short name
 	 */
 	boolean isShortName(String name);
 
 	/**
 	 * Does not accept null values for the {@code name} parameter.
+	 *
+	 * @param shortName the short name
+	 * @return the resolved FQN
 	 */
 	String resolve(String shortName);
 }
