@@ -26,8 +26,8 @@
             See the version.wildfly property in the hibernate-ogm-parent pom
             See http://search.maven.org/#search|gav|1|g%3A"org.wildfly"%20AND%20a%3A"wildfly-parent"
         -->
-        <hibernateSearchVersion>5.6.2.Final</hibernateSearchVersion>
-        <hibernate-search.module.slot>${hibernateSearchVersion}-orm51</hibernate-search.module.slot>
+        <hibernateSearchVersion>5.7.1.Final</hibernateSearchVersion>
+        <hibernate-search.module.slot>${hibernateSearchVersion}-orm52</hibernate-search.module.slot>
         <hibernateCommonsAnnotationsVersion>5.0.1.Final</hibernateCommonsAnnotationsVersion>
         <jbossLoggingVersion>3.3.0.Final</jbossLoggingVersion>
         <jbossLoggingProcessorVersion>2.0.2.Final</jbossLoggingProcessorVersion>
@@ -40,7 +40,7 @@
         <narayanaVersion>5.4.0.Final</narayanaVersion>
 
         <!-- Hibernate ORM -->
-        <hibernateVersion>5.1.10.Final</hibernateVersion>
+        <hibernateVersion>5.2.11-SNAPSHOT</hibernateVersion>
 
         <!-- Careful: Lucene is shared across Neo4J dependencies, Infinispan and Hibernate Search -->
         <luceneVersion>5.5.4</luceneVersion>

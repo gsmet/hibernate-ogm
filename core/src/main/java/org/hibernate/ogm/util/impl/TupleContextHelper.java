@@ -7,6 +7,7 @@
 package org.hibernate.ogm.util.impl;
 
 import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.ogm.dialect.batch.spi.OperationsQueue;
 import org.hibernate.ogm.dialect.spi.TransactionContext;
 import org.hibernate.ogm.dialect.spi.TupleContext;
@@ -28,7 +29,7 @@ public class TupleContextHelper {
 	 * @param metadata the {@link EntityMetadataInformation} of the entity associated to the TupleContext
 	 * @return the TupleContext associated to the current session for the entity specified
 	 */
-	public static TupleContext tupleContext(SessionImplementor session, EntityMetadataInformation metadata) {
+	public static TupleContext tupleContext(SharedSessionContractImplementor session, EntityMetadataInformation metadata) {
 		if ( metadata != null ) {
 			OgmEntityPersister persister = (OgmEntityPersister) session.getFactory().getEntityPersister( metadata.getTypeName() );
 			return persister.getTupleContext( session );
