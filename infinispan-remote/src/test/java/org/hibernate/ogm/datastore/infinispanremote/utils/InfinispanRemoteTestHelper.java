@@ -54,7 +54,7 @@ public class InfinispanRemoteTestHelper implements GridDialectTestHelper {
 	public long getNumberOfAssociations(SessionFactory sessionFactory) {
 		final InfinispanRemoteDatastoreProvider datastoreProvider = getProvider( sessionFactory );
 		final SessionFactoryImplementor sessionFactoryImplementor = getSessionFactoryImplementor( sessionFactory );
-		Collection<CollectionPersister> persisters = sessionFactoryImplementor.getCollectionPersisters().values();
+		Collection<CollectionPersister> persisters = sessionFactoryImplementor.getMetamodel().collectionPersisters().values();
 		long totalCount = 0;
 		for ( CollectionPersister ep : persisters ) {
 			OgmCollectionPersister persister = (OgmCollectionPersister) ep;
@@ -143,7 +143,7 @@ public class InfinispanRemoteTestHelper implements GridDialectTestHelper {
 	public long getNumberOfEntities(SessionFactory sessionFactory) {
 		final InfinispanRemoteDatastoreProvider datastoreProvider = getProvider( sessionFactory );
 		final SessionFactoryImplementor sessionFactoryImplementor = getSessionFactoryImplementor( sessionFactory );
-		Collection<EntityPersister> persisters = sessionFactoryImplementor.getEntityPersisters().values();
+		Collection<EntityPersister> persisters = sessionFactoryImplementor.getMetamodel().entityPersisters().values();
 		final AtomicLong counter = new AtomicLong();
 		for ( EntityPersister ep : persisters ) {
 			OgmEntityPersister persister = (OgmEntityPersister) ep;

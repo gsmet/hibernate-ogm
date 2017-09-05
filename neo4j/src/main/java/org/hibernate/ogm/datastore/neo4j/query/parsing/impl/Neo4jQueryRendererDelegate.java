@@ -72,7 +72,7 @@ public class Neo4jQueryRendererDelegate extends SingleEntityQueryRendererDelegat
 	}
 
 	private OgmEntityPersister getEntityPersister(Class<?> entityType) {
-		OgmEntityPersister persister = (OgmEntityPersister) ( sessionFactory ).getEntityPersister( entityType.getName() );
+		OgmEntityPersister persister = (OgmEntityPersister) ( sessionFactory ).getMetamodel().entityPersister( entityType );
 		return persister;
 	}
 
@@ -204,7 +204,7 @@ public class Neo4jQueryRendererDelegate extends SingleEntityQueryRendererDelegat
 
 			String separator = "";
 			for ( String subclass : subclassEntityNames ) {
-				OgmEntityPersister subclassPersister = (OgmEntityPersister) sessionFactory.getEntityPersister( subclass );
+				OgmEntityPersister subclassPersister = (OgmEntityPersister) sessionFactory.getMetamodel().entityPersister( subclass );
 				Object discriminatorValue = subclassPersister.getDiscriminatorValue();
 				queryBuilder.append( separator );
 				appendDiscriminatorValue( queryBuilder, discriminatorType, discriminatorValue );

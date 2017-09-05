@@ -1120,7 +1120,7 @@ public class OgmLoader implements UniqueEntityLoader, BatchableEntityLoader, Tup
 		final Serializable id = key.getIdentifier();
 
 		// Get the persister for the _subclass_
-		final OgmEntityPersister persister = (OgmEntityPersister) getFactory().getEntityPersister( instanceEntityName );
+		final OgmEntityPersister persister = (OgmEntityPersister) getFactory().getMetamodel().entityPersister( instanceEntityName );
 
 		if ( log.isTraceEnabled() ) {
 			log.trace(
