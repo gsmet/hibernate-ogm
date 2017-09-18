@@ -8,6 +8,7 @@ package org.wildfly.jpa.hibernateogm5;
 
 import java.util.Map;
 
+import javax.enterprise.inject.spi.BeanManager;
 import javax.persistence.spi.PersistenceUnitInfo;
 
 import org.hibernate.cfg.Environment;
@@ -86,4 +87,13 @@ public class HibernateOGMPersistenceProviderAdaptor implements PersistenceProvid
 		return ormOriginalAdaptor.getBootstrap( info, map );
 	}
 
+	@Override
+	public Object beanManagerLifeCycle(BeanManager beanManager) {
+		return ormOriginalAdaptor.beanManagerLifeCycle( beanManager );
+	}
+
+	@Override
+	public void markPersistenceUnitAvailable(Object wrapperBeanManagerLifeCycle) {
+		ormOriginalAdaptor.markPersistenceUnitAvailable( wrapperBeanManagerLifeCycle );
+	}
 }
